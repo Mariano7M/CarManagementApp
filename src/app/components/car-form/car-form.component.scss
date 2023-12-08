@@ -1,0 +1,27 @@
+.car-form {
+  display: flex;
+  flex-direction: column;
+
+  &__add-button {
+    align-self: flex-end;
+  }
+
+  &__card {
+    width: 50%;
+    margin: auto;
+  }
+
+  &__form {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
+}

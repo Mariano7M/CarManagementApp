@@ -1,0 +1,48 @@
+<div class="car-form">
+  <section *ngIf="!isCarFormVisible" class="car-form__add-button">
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+      (click)="onAddCar()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </section>
+  <mat-card *ngIf="isCarFormVisible" class="car-form__card">
+    <mat-card-header>
+      <mat-card-title>Add Car</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="cardForm" class="car-form__form" (ngSubmit)="onSave()">
+        <mat-form-field appearance="outline">
+          <mat-label>Make</mat-label>
+          <input matInput placeholder="Make" formControlName="make" />
+          <mat-error *ngIf="makeField?.invalid"
+            >Make field is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Model</mat-label>
+          <input matInput placeholder="Model" formControlName="model" />
+          <mat-error *ngIf="modelField?.invalid"
+            >Model field is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Year</mat-label>
+          <input matInput placeholder="Year" formControlName="year" />
+          <mat-error *ngIf="yearField?.invalid"
+            >Year field is required</mat-error
+          >
+        </mat-form-field>
+        <div class="car-form__form-buttons">
+          <button mat-button color="warn" type="button" (click)="onCancel()">
+            Cancel
+          </button>
+          <button mat-raised-button color="primary">Save Car</button>
+        </div>
+      </form></mat-card-content
+    >
+  </mat-card>
+</div>
